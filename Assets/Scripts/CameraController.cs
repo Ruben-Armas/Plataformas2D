@@ -7,6 +7,10 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float xMin;
     [SerializeField] float xMax;
 
+    private void Start() {
+        AudioManager.instance.PlayMusic("MainTheme");  // Llama la clase AudioManager para reproducirlamúsica principal
+    }
+
     void Update() {
         // Mueve la cámara como si fuera hija del Player
         //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
