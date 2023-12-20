@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] bool isJumping = false;
 
+    // Obtenemos la referencia al sistema de partículas
+    [SerializeField] ParticleSystem jumpParticles;
+
     void Update() {
         // Movimiento a la derecha
         /*if (Input.GetAxisRaw("Horizontal") == 1) {
@@ -33,7 +36,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetAxisRaw("Horizontal") == -1) GetComponent<SpriteRenderer>().flipX = true;
 
         // Salto solo si no está en el aire
-        if (Input.GetButtonDown("Fire1") && !isJumping) {
+        //if (Input.GetButtonDown("Fire1") && !isJumping) {
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping) {
+                jumpParticles.Play();// Iniciamos la producción de partículas
             AudioManager.instance.PlaySFX("Jump");  // Llama la clase AudioManager para reproducir un efecto de sonido
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
