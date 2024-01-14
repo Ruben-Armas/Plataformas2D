@@ -36,6 +36,16 @@ public class SCManager : MonoBehaviour {
         //SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);    // Carga otra escena sin quitar la anterior
     }
 
+    // Método para cargar una nueva escena por nombre Sin Quitar la actual
+    public void LoadSceneAdditive(string sceneName) {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);    // Carga otra escena sin quitar la anterior
+    }
+
+    // Método para Descargar la escena aditiva y volver a la de fondo
+    public void UploadSceneAdditive(string sceneName) {
+        SceneManager.UnloadSceneAsync(sceneName);
+    }
+
 }
 
 // -----------------------------------------
